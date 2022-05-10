@@ -39,14 +39,17 @@
             el: "#app",
             data: {
                 tmp: "",
-                toDoList: ["할일"]
+                toDoList: ["뷰 공부 해야지 바부팅아...", "초기값 셋팅 못하겠다..."],
             },
             methods: {
                 toDo() {
+                    localStorage.setItem(this.tmp, this.tmp);
                     this.toDoList.push(this.tmp)
                     this.tmp = "";
                 },
                 del(index){
+                    let key = this.toDoList[index];
+                    localStorage.removeItem(key);
                     this.toDoList.splice(index,1);
                 },
             }
